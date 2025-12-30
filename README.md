@@ -120,7 +120,7 @@ bafffffb – 1011 10 0 111111111111111111111011 – branch, conditional (LT) = B
 ebffffff – 1110 10 1 111111111111111111111111 – branch with link = BL func
 
 
-e52de004 – 1110 01 0 0 0 0 1 0 1101 1110 000000000100 – memory, immediate, post-index, subtract offset, STR = STR LR, [SP, #-4]!
+e52de004 – 1110 01 0 0 0 0 1 0 1101 1110 000000000100 – memory, immediate, not supported, subtract offset, STR = STR LR, [SP, #-4]!
 
 
 e3a0400f – 1110 00 1 1101 0 0000 0100 000000001111 – data processing, immediate, MOV = MOV R4, #15
