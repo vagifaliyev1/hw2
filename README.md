@@ -12,11 +12,14 @@ The first step of the reverse engineering process was converting each hexadecima
 ## Separation Breakdown
 
 00 – Data Processing Instructions
+<img width="560" height="97" alt="image" src="https://github.com/user-attachments/assets/10d1275f-a2e2-4586-80e6-bb922f6f9271" />
 
 cond | op | i |  cmd  | s |   Rn    |   Rd   | shamt5 | sh | 0 | Rm
 1110 | 00 | 0 | 0010 | 1  |   0011 | 0101 | 00000  | 00 | 0 | 0100
 
 01 - Memory Access instructions
+
+<img width="478" height="58" alt="image" src="https://github.com/user-attachments/assets/b551f725-9510-4336-991c-30e31ebe26ba" />
 
 cond | op | i | p | u | b | w | l | Rn   | Rd   | offset
 1110 | 01 | 0 | 0 | 0 | 0 | 1 | 0 | 1101 | 1110 | 000000000100
