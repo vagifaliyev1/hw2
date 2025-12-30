@@ -12,7 +12,6 @@ The first step of the reverse engineering process was converting each hexadecima
 ## Separation Breakdown
 
 00 – Data Processing Instructions
-<img width="560" height="97" alt="image" src="https://github.com/user-attachments/assets/10d1275f-a2e2-4586-80e6-bb922f6f9271" />
 
 cond | op | i |  cmd  | s |   Rn    |   Rd   | shamt5 | sh | 0 | Rm
 1110 | 00 | 0 | 0010 | 1  |   0011 | 0101 | 00000  | 00 | 0 | 0100
