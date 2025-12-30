@@ -1,16 +1,15 @@
-Methodology
+# Methodology
 Step-by-step Process
 
-Hex to Binary Conversion
+## Hex to Binary Conversion
 The first step of the reverse engineering process was converting each hexadecimal instruction from the given dump into its 32-bit binary representation. This makes the individual ARM32 instruction fields visible and allows decoding using the formats presented in the lecture slides. An online number converter was used for this conversion.
 
-Instruction Type Identification
-After converting the instructions to binary, the instruction type was identified using the op field (bits [27:26]), as described in the lecture slides:
+## Instruction Type Identification
 * 00 - Data Processing instructions
 * 01 - Memory Access instructions
 * 10 - Branch instructions
 
-Separation Breakdown
+## Separation Breakdown
 
 00 – Data Processing Instructions
 
@@ -29,9 +28,9 @@ cond | op | L | imm24
 How I Wrote This Code
 So first of all the conversion process started and I used online converter to see the binary values instead of hexadecimal. You can see the list here:
 
-00 – DATA PROCESSING (op = 00)
+### 00 – DATA PROCESSING (op = 00)
 
-Format (I = 1, immediate):
+### Format (I = 1, immediate):
 cond | 00 | I | cmd  | S | Rn   | Rd   | rot  | imm8
 
 e3a01000
@@ -59,7 +58,7 @@ e3a0500a
 1110 | 00 | 1 | 1101 | 0 | 0000 | 0101 | 0000 | 00001010
 
 
-Format (I = 0, register):
+### Format (I = 0, register):
 cond | 00 | I | cmd  | S | Rn   | Rd   | shamt5 | sh | 0 | Rm
 
 e0535004
@@ -72,7 +71,7 @@ e0535004
 1110 | 00 | 0 | 0010 | 1 | 0011 | 0101 | 00000  | 00 | 0 | 0100
 
 
-01 – MEMORY ACCESS (op = 01)
+### 01 – MEMORY ACCESS (op = 01)
 
 Format:
 cond | 01 | I | P | U | B | W | L | Rn   | Rd   | offset
@@ -81,7 +80,7 @@ e52de004
 1110 | 01 | 0 | 0 | 0 | 0 | 1 | 0 | 1101 | 1110 | 000000000100
 
 
-10 – BRANCH (op = 10)
+### 10 – BRANCH (op = 10)
 
 Format:
 cond | 10 | L | imm24
@@ -97,7 +96,7 @@ eafffff9
 
 
 
-And then I just calculated everything to the assembly code:
+### And then I just calculated everything to the assembly code:
 
 e3a01000 – 1110 00 1 1101 0 0000 0001 000000000000 – data processing, immediate, MOV = MOV R1, #0
 
@@ -137,9 +136,8 @@ e0535004 – 1110 00 0 0010 1 0011 0101 00000 00 0 0100 – data processing, reg
 eafffff9 – 1110 10 0 111111111111111111111001 – branch, unconditional = B func
 
 
-##Correct Logical Reconstruction of the Program:##
+## Correct Logical Reconstruction of the Program:
 
-Correct Logical Reconstruction of the Program
 Program Start and Initialization
 
 MOV R1, #0
