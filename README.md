@@ -1,4 +1,4 @@
-## YouTube ideo link:
+## YouTube video link:
 https://youtu.be/i3P_-JaeLRE
 
 
